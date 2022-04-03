@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage ('git checkout') {
       steps {
-        echo "hello this is my first pipeline sample"
+        echo "Checkout of source code from git"
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/dhatreyi/test_Mar15.git']]])
+        
       }
     }
   }
